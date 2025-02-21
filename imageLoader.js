@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const column = columns[index % 4];
         column.innerHTML += `
             <div class="photo" data-category="${img.category}">
-                <img data-src="images/${img.src}" decoding="asynchronous">
+                <img src="images/${img.src}" decoding="asynchronous">
             </div>`;
     });
 });
