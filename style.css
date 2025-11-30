@@ -110,9 +110,10 @@ header .container {
 /* Mobile header logo - hidden on desktop */
 .header-logo {
     display: none;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700;
     font-size: 24px;
+    line-height: 1.2;
     color: var(--color-text);
     letter-spacing: 2px;
 }
@@ -422,11 +423,13 @@ nav ul li a:focus-visible {
     header {
         position: fixed;
         padding: 20px 0;
+        min-height: 64px;
     }
 
     header .container {
         padding: 0 var(--spacing-lg);
         justify-content: space-between;
+        min-height: 24px;
     }
 
     /* Show mobile header logo */
