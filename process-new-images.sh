@@ -26,6 +26,13 @@ if ! command -v magick &> /dev/null; then
     exit 1
 fi
 
+# Check if jq is installed (for JSON manipulation)
+if ! command -v jq &> /dev/null; then
+    echo -e "${RED}Error: jq is not installed${NC}"
+    echo -e "${YELLOW}Install it with: brew install jq${NC}"
+    exit 1
+fi
+
 # Create directories if they don't exist
 mkdir -p images/thumb images/medium
 
@@ -128,20 +135,60 @@ else
     echo -e "${GREEN}✓ Successfully processed $processed_images new image(s)${NC}"
     echo ""
 
-    # Output dimension data for easy copy-paste into images-data.json
+    # Automatically update images-data.json
     if [ ${#dimension_data[@]} -gt 0 ]; then
-        echo -e "${BLUE}New image data for images-data.json:${NC}"
-        echo -e "${YELLOW}(Copy and paste into your images-data.json file)${NC}"
+        echo -e "${BLUE}Updating images-data.json...${NC}"
+
+        # Create a temporary JSON array of new images
+        temp_new_images="["
+        for i in "${!dimension_data[@]}"; do
+            entry="${dimension_data[$i]}"
+            # Remove leading spaces and add proper formatting
+            entry=$(echo "$entry" | sed 's/^[[:space:]]*//')
+            temp_new_images+="$entry"
+            # Add comma if not the last element
+            if [ $i -lt $((${#dimension_data[@]} - 1)) ]; then
+                temp_new_images+=","
+            fi
+        done
+        temp_new_images+="]"
+
+        # Save the new images JSON to a temp file
+        echo "$temp_new_images" > /tmp/new_images.json
+
+        # Use jq to insert new images after the first 6 entries
+        # Keep first 6 images, add new images, then add remaining images
+        jq --slurpfile new /tmp/new_images.json \
+           '.images = (.images[:6] + $new[0] + .images[6:])' \
+           images-data.json > /tmp/images-data-updated.json
+
+        # Backup original file
+        cp images-data.json images-data.json.backup
+
+        # Replace with updated file
+        mv /tmp/images-data-updated.json images-data.json
+
+        # Clean up temp files
+        rm /tmp/new_images.json
+
+        echo -e "${GREEN}✓ images-data.json updated successfully!${NC}"
+        echo -e "${YELLOW}  → First 6 images remain fixed${NC}"
+        echo -e "${YELLOW}  → ${#dimension_data[@]} new image(s) inserted after position 6${NC}"
+        echo -e "${YELLOW}  → Backup saved as images-data.json.backup${NC}"
         echo ""
+
+        echo -e "${BLUE}New images added:${NC}"
         for entry in "${dimension_data[@]}"; do
-            echo "$entry,"
+            # Extract filename from the entry
+            filename=$(echo "$entry" | grep -o '"src": "[^"]*"' | cut -d'"' -f4)
+            echo -e "  ${GREEN}→${NC} $filename"
         done
         echo ""
     fi
 
     echo -e "${BLUE}Next steps:${NC}"
-    echo -e "1. Copy the dimension data above into images-data.json"
-    echo -e "2. Update the category field for each image (landscape/portraits/wildlife/astro)"
+    echo -e "1. Review images-data.json to verify the changes"
+    echo -e "2. Update the category field for new images if needed (landscape/portraits/wildlife/astro)"
     echo -e "3. Test your portfolio to ensure images load correctly"
     echo -e "4. Commit and push to GitHub"
 fi
