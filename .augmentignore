@@ -1,0 +1,48 @@
+# Augment Code - Files to exclude from context/suggestions
+# This prevents internal documentation and chat history from being exposed
+
+# Internal documentation
+*.md
+!README.md
+
+# Augment chat history and internal files
+.augment/
+.augmentcode/
+
+# Development notes
+notes/
+docs/
+TODO.md
+CHANGELOG.md
+
+# Sensitive or private information
+.env
+.env.*
+secrets/
+credentials/
+
+# Build artifacts
+dist/
+build/
+*.min.js
+*.min.css
+
+# Dependencies
+node_modules/
+vendor/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+

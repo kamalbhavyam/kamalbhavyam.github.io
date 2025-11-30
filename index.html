@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavyam Kamal - Photography Portfolio</title>
+
+    <!-- Google Fonts - Raleway + Source Sans Pro (optimized with font-display: swap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="imageLoader.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Logo Section (scrolls away) -->
+<section class="logo-section">
+    <h1>Bhavyam Kamal</h1>
+</section>
+
+<!-- Sticky Header (stays on scroll) -->
+<header role="banner">
+    <div class="container">
+        <div class="header-logo">Bhavyam Kamal</div>
+        <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav role="navigation" aria-label="Main navigation">
+            <button class="menu-close" aria-label="Close navigation menu">&times;</button>
+            <ul>
+                <li><a href="#home" class="active" aria-current="page">Home</a></li>
+                <li><a href="#landscape">Landscape</a></li>
+                <li><a href="#portraits">Portraits</a></li>
+                <li><a href="#wildlife">Wildlife</a></li>
+                <li><a href="#astro">Astro</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Photo Gallery - CSS Multi-column Layout -->
+<main role="main">
+    <section class="gallery" aria-label="Photography gallery">
+        <!-- Images loaded dynamically by imageLoader.js -->
+    </section>
+</main>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button class="close" aria-label="Close lightbox">&times;</button>
+    <div class="lightbox-spinner"></div>
+    <img class="lightbox-content" id="lightbox-img" alt="">
+    <button class="prev" aria-label="Previous image">&#10094;</button>
+    <button class="next" aria-label="Next image">&#10095;</button>
+</div>
+
+</body>
+</html>

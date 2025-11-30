@@ -1,0 +1,508 @@
+/* CSS Custom Properties for maintainability */
+:root {
+    /* Colors */
+    --color-bg: #FDFDFD;
+    --color-text: #2C2C2C;
+    --color-text-grey: #7f7f7f;
+    --color-text-black: #000000;
+    --color-accent: #8B7355;
+    --color-border: #f0f0f0;
+    --color-shimmer-light: #f5f5f5;
+    --color-shimmer-dark: #e8e8e8;
+    --color-lightbox-bg: rgba(250, 248, 245, 0.98);
+    --color-button-bg: rgba(255, 255, 255, 0.8);
+    --color-button-bg-hover: rgba(255, 255, 255, 1);
+
+    /* Spacing */
+    --spacing-xs: 9px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+    --spacing-4xl: 120px;
+
+    /* Breakpoints */
+    --breakpoint-mobile: 768px;
+    --breakpoint-tablet: 900px;
+    --breakpoint-desktop: 1024px;
+    --breakpoint-large: 1200px;
+
+    /* Layout */
+    --max-width-gallery: 1600px;
+    --max-width-container: 1400px;
+    --column-gap: var(--spacing-xs);
+}
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    overflow-x: hidden; /* Only on body, not html, to allow sticky */
+}
+
+/* Logo Section (scrolls away) */
+.logo-section {
+    text-align: center;
+    padding: 40px 0 20px;
+    background: var(--color-bg);
+}
+
+.logo-section h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* Sticky Header (stays on scroll) */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--color-bg);
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+}
+
+/* Hide header when scrolling down on mobile */
+header.header-hidden {
+    transform: translateY(-100%);
+}
+
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 var(--spacing-2xl);
+    width: 100%;
+    position: relative;
+}
+
+/* Mobile header logo - hidden on desktop */
+.header-logo {
+    display: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--color-text);
+    letter-spacing: 2px;
+}
+
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+/* Hamburger animation when menu is open */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Close button in mobile menu */
+.menu-close {
+    display: none;
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: transparent;
+    border: none;
+    font-size: 36px;
+    color: var(--color-text);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li a {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-text-black);
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Selected/active page */
+nav ul li a.active {
+    color: var(--color-text-grey);
+}
+
+/* Hover effect */
+nav ul li a:hover {
+    color: var(--color-text-grey);
+}
+
+/* Focus state for keyboard navigation */
+nav ul li a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* Refined Photo Gallery - JavaScript Masonry Layout */
+.gallery {
+    max-width: var(--max-width-gallery);
+    margin: var(--spacing-lg) var(--spacing-3xl) var(--spacing-4xl);
+    padding: 0 var(--spacing-2xl);
+    position: relative;
+}
+
+.photo {
+    position: absolute;
+    cursor: pointer;
+    background: linear-gradient(
+        90deg,
+        var(--color-shimmer-light) 0%,
+        var(--color-shimmer-dark) 50%,
+        var(--color-shimmer-light) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    min-height: 200px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
+    opacity: 0;
+    /* Hide alt text while image is loading */
+    color: transparent;
+    font-size: 0;
+    text-indent: -9999px;
+}
+
+/* Fade in images when loaded and stop shimmer */
+.photo img[src] {
+    opacity: 1;
+}
+
+.photo.loaded {
+    animation: none;
+    background: var(--color-bg);
+}
+
+/* Smooth shrink on hover */
+.photo:hover img {
+    transform: scale(0.98);
+}
+
+/* Elegant Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 248, 245, 0);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    transition: opacity 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease, background 0.4s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    background: var(--color-lightbox-bg);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+    background: var(--color-shimmer-light);
+    min-height: 200px;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Loading state for lightbox image */
+.lightbox-content[src=""] {
+    opacity: 0.3;
+}
+
+/* Loading spinner for lightbox */
+.lightbox-spinner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--color-text);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.lightbox-spinner.active {
+    opacity: 1;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.close, .prev, .next {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 28px;
+    font-weight: 200;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    outline: none; /* Remove focus outline */
+}
+
+/* Remove focus outline for mouse users, keep for keyboard users */
+.close:focus:not(:focus-visible),
+.prev:focus:not(:focus-visible),
+.next:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Show focus outline only for keyboard users */
+.close:focus-visible,
+.prev:focus-visible,
+.next:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+.close:hover, .prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 1);
+    opacity: 1;
+}
+
+.close {
+    top: var(--spacing-xl);
+    right: var(--spacing-xl);
+    font-size: 32px;
+}
+
+.prev {
+    left: var(--spacing-xl);
+}
+
+.next {
+    right: var(--spacing-xl);
+}
+
+/* Responsive Design - 3 Column Layout */
+@media (max-width: 1200px) {
+    header .container,
+    .gallery {
+        padding: 0 var(--spacing-xl);
+    }
+
+    .logo-section h1 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 1024px) {
+    nav ul {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Mobile: 2 columns */
+@media (max-width: 768px) {
+    /* Hide logo section on mobile */
+    .logo-section {
+        display: none;
+    }
+
+    header {
+        position: fixed;
+        padding: 20px 0;
+    }
+
+    header .container {
+        padding: 0 var(--spacing-lg);
+        justify-content: space-between;
+    }
+
+    /* Show mobile header logo */
+    .header-logo {
+        display: block;
+    }
+
+    /* Show hamburger menu */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Show close button in mobile menu */
+    .menu-close {
+        display: block;
+    }
+
+    /* Hide desktop navigation by default */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: auto;
+        min-width: 200px;
+        height: auto;
+        background: var(--color-bg);
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+        padding-top: 20px;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 0 8px;
+    }
+
+    /* Show navigation when menu is open */
+    nav.menu-open {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: 0;
+    }
+
+    nav ul li {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 20px var(--spacing-lg);
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .gallery {
+        padding: 0;
+        margin: 80px 0 var(--spacing-4xl);
+    }
+
+    /* Remove min-height on mobile to prevent whitespace */
+    .photo {
+        min-height: 0;
+    }
+
+    .close, .prev, .next {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .close {
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+    }
+
+    /* Hide navigation arrows on mobile - swipe gestures available */
+    .prev, .next {
+        display: none;
+    }
+}
