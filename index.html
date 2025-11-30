@@ -42,7 +42,7 @@
             background: var(--color-bg);
         }
         .logo-section h1 {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 56px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -56,6 +56,12 @@
             z-index: 1000;
             padding: var(--spacing-sm) 0;
         }
+        nav {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
         .gallery {
             max-width: var(--max-width-gallery);
             margin: var(--spacing-lg) var(--spacing-3xl) var(--spacing-4xl);
@@ -66,14 +72,17 @@
             position: absolute;
             cursor: pointer;
             background: #f5f5f5;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .photo.positioned {
+            opacity: 1;
         }
         .photo img {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0;
         }
-        .photo img[src] { opacity: 1; }
     </style>
 
     <!-- Preload critical resources -->

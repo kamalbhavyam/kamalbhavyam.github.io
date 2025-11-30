@@ -151,10 +151,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Apply masonry layout after DOM is updated
-        // Use requestAnimationFrame to ensure DOM has been painted
+        // Use single requestAnimationFrame to minimize delay
         requestAnimationFrame(() => {
+            applyMasonryLayout();
+            // Fade in photos after positioning to prevent CLS
             requestAnimationFrame(() => {
-                applyMasonryLayout();
+                const photos = gallery.querySelectorAll('.photo');
+                photos.forEach(photo => photo.classList.add('positioned'));
             });
         });
 
