@@ -96,6 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
             photoDiv.className = 'photo';
             photoDiv.dataset.category = img.category;
 
+            // Set aspect-ratio on container to prevent CLS
+            // This reserves the correct space before the image loads
+            if (img.w && img.h) {
+                photoDiv.style.aspectRatio = `${img.w} / ${img.h}`;
+            }
+
             // Get file name without extension for AVIF
             const fileNameWithoutExt = img.src.replace(/\.(jpg|JPG|jpeg|JPEG)$/, '');
 
