@@ -3,9 +3,10 @@
 # Smart Image Processor - Processes NEW images and generates AVIF versions
 # This script:
 # - Checks if thumbnail and medium versions already exist
-# - Generates both JPEG and AVIF versions for optimal performance
+# - Generates AVIF versions only (no JPEG fallbacks)
 # - Extracts image dimensions for layout shift prevention
 # - Only processes images that are missing versions
+# - Automatically updates images-data.json with new images after first 6 entries
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -82,32 +83,24 @@ for img in images/*.jpg images/*.JPG images/*.jpeg images/*.JPEG; do
     echo -e "${GREEN}✓ Processing:${NC} $filename"
     processed_images=$((processed_images + 1))
 
-    # Create thumbnail versions if they don't exist (400px wide)
+    # Create thumbnail versions if they don't exist (400px wide, AVIF only)
     if [ "$thumb_avif_exists" = false ]; then
         echo -e "  ${BLUE}→${NC} Creating thumbnail AVIF..."
         magick "$img" -resize 400x -quality 80 "images/thumb/${filename_no_ext}.avif"
-
-        # Also create JPEG fallback
-        echo -e "  ${BLUE}→${NC} Creating thumbnail JPEG fallback..."
-        magick "$img" -resize 400x -quality 80 "images/thumb/$filename"
     else
         echo -e "  ${YELLOW}→${NC} Thumbnail exists, skipping"
     fi
 
-    # Create medium versions if they don't exist (1200px wide)
+    # Create medium versions if they don't exist (1200px wide, AVIF only)
     if [ "$medium_avif_exists" = false ]; then
         echo -e "  ${BLUE}→${NC} Creating medium AVIF..."
         magick "$img" -resize 1200x -quality 85 "images/medium/${filename_no_ext}.avif"
-
-        # Also create JPEG fallback
-        echo -e "  ${BLUE}→${NC} Creating medium JPEG fallback..."
-        magick "$img" -resize 1200x -quality 85 "images/medium/$filename"
     else
         echo -e "  ${YELLOW}→${NC} Medium version exists, skipping"
     fi
 
     # Extract dimensions from thumbnail for layout shift prevention
-    dimensions=$(magick identify -format "%w %h" "images/thumb/${filename_no_ext}.avif" 2>/dev/null || magick identify -format "%w %h" "images/thumb/$filename")
+    dimensions=$(magick identify -format "%w %h" "images/thumb/${filename_no_ext}.avif")
     width=$(echo $dimensions | cut -d' ' -f1)
     height=$(echo $dimensions | cut -d' ' -f2)
 
