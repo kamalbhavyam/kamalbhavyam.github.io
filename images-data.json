@@ -1472,13 +1472,13 @@
     },
     {
       "src": "2022-1.jpg",
-      "category": "landscape",
+      "category": "wildlife",
       "w": 400,
       "h": 600
     },
     {
       "src": "2022-10.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 267
     },
@@ -1496,25 +1496,25 @@
     },
     {
       "src": "2022-13.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 225
     },
     {
       "src": "2022-14.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 711
     },
     {
       "src": "2022-15.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 711
     },
     {
       "src": "2022-16.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 225
     },
@@ -1532,13 +1532,13 @@
     },
     {
       "src": "2022-19.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 225
     },
     {
       "src": "2022-2.jpg",
-      "category": "landscape",
+      "category": "wildlife",
       "w": 400,
       "h": 267
     },
@@ -1556,45 +1556,39 @@
     },
     {
       "src": "2022-22.jpg",
-      "category": "landscape",
+      "category": "wildlife",
       "w": 400,
       "h": 225
     },
     {
       "src": "2022-23.jpg",
-      "category": "landscape",
+      "category": "wildlife",
       "w": 400,
       "h": 711
     },
     {
       "src": "2022-24.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 711
     },
     {
       "src": "2022-3.jpg",
-      "category": "landscape",
+      "category": "wildlife",
       "w": 400,
       "h": 267
     },
     {
       "src": "2022-4.jpg",
-      "category": "landscape",
+      "category": "wildlife",
       "w": 400,
       "h": 267
     },
     {
       "src": "2022-5.jpg",
-      "category": "landscape",
+      "category": "portraits",
       "w": 400,
       "h": 267
-    },
-    {
-      "src": "2022-6.jpg",
-      "category": "landscape",
-      "w": 400,
-      "h": 600
     },
     {
       "src": "2022-7.jpg",

@@ -37,6 +37,84 @@
       "h": 225
     },
     {
+      "src": "Taiwan-1.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 711
+    },
+    {
+      "src": "Taiwan-10.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 225
+    },
+    {
+      "src": "Taiwan-11.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 225
+    },
+    {
+      "src": "Taiwan-12.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 225
+    },
+    {
+      "src": "Taiwan-13.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 711
+    },
+    {
+      "src": "Taiwan-2.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 225
+    },
+    {
+      "src": "Taiwan-3.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 711
+    },
+    {
+      "src": "Taiwan-4.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 225
+    },
+    {
+      "src": "Taiwan-5.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 225
+    },
+    {
+      "src": "Taiwan-6.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 711
+    },
+    {
+      "src": "Taiwan-7.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 711
+    },
+    {
+      "src": "Taiwan-8.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 225
+    },
+    {
+      "src": "Taiwan-9.jpg",
+      "category": "landscape",
+      "w": 400,
+      "h": 711
+    },
+    {
       "src": "Bundi-1.jpg",
       "category": "portraits",
       "w": 400,
@@ -379,13 +457,13 @@
       "h": 711
     },
     {
-      "src": "japan6.jpg",
+      "src": "Japan-6.jpg",
       "category": "landscape",
       "w": 400,
       "h": 711
     },
     {
-      "src": "japan7.jpg",
+      "src": "Japan-7.jpg",
       "category": "landscape",
       "w": 400,
       "h": 711
@@ -409,7 +487,7 @@
       "h": 225
     },
     {
-      "src": "japan11.jpg",
+      "src": "Japan-11.jpg",
       "category": "portraits",
       "w": 400,
       "h": 225
@@ -475,7 +553,7 @@
       "h": 225
     },
     {
-      "src": "japan22.jpg",
+      "src": "Japan-22.jpg",
       "category": "landscape",
       "w": 400,
       "h": 711
@@ -505,12 +583,6 @@
       "h": 225
     },
     {
-      "src": "japan29.jpg",
-      "category": "landscape",
-      "w": 400,
-      "h": 711
-    },
-    {
       "src": "japan30.jpg",
       "category": "landscape",
       "w": 400,
@@ -523,115 +595,115 @@
       "h": 711
     },
     {
-      "src": "kazakhstan1.jpg",
+      "src": "Kazakhstan-1.jpg",
       "category": "landscape",
       "w": 400,
       "h": 267
     },
     {
-      "src": "kazakhstan2.jpg",
+      "src": "Kazakhstan-2.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan3.jpg",
+      "src": "Kazakhstan-3.jpg",
       "category": "portraits",
       "w": 400,
       "h": 267
     },
     {
-      "src": "kazakhstan4.jpg",
+      "src": "Kazakhstan-4.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan5.jpg",
+      "src": "Kazakhstan-5.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan6.jpg",
+      "src": "Kazakhstan-6.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan7.jpg",
+      "src": "Kazakhstan-7.jpg",
       "category": "landscape",
       "w": 400,
       "h": 711
     },
     {
-      "src": "kazakhstan8.jpg",
+      "src": "Kazakhstan-8.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan9.jpg",
+      "src": "Kazakhstan-9.jpg",
       "category": "landscape",
       "w": 400,
       "h": 267
     },
     {
-      "src": "kazakhstan10.jpg",
+      "src": "Kazakhstan-10.jpg",
       "category": "landscape",
       "w": 400,
       "h": 600
     },
     {
-      "src": "kazakhstan11.jpg",
+      "src": "Kazakhstan-11.jpg",
       "category": "landscape",
       "w": 400,
       "h": 267
     },
     {
-      "src": "kazakhstan12.jpg",
+      "src": "Kazakhstan-12.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan13.jpg",
+      "src": "Kazakhstan-13.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan14.jpg",
+      "src": "Kazakhstan-14.jpg",
       "category": "landscape",
       "w": 400,
       "h": 267
     },
     {
-      "src": "kazakhstan15.jpg",
+      "src": "Kazakhstan-15.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan16.jpg",
+      "src": "Kazakhstan-16.jpg",
       "category": "landscape",
       "w": 400,
       "h": 711
     },
     {
-      "src": "kazakhstan17.jpg",
+      "src": "Kazakhstan-17.jpg",
       "category": "landscape",
       "w": 400,
       "h": 225
     },
     {
-      "src": "kazakhstan18.jpg",
+      "src": "Kazakhstan-18.jpg",
       "category": "landscape",
       "w": 400,
       "h": 711
     },
     {
-      "src": "kazakhstan19.jpg",
+      "src": "Kazakhstan-19.jpg",
       "category": "landscape",
       "w": 400,
       "h": 711
@@ -1061,12 +1133,6 @@
       "category": "landscape",
       "w": 400,
       "h": 225
-    },
-    {
-      "src": "Malaysia-14.jpg",
-      "category": "landscape",
-      "w": 400,
-      "h": 711
     },
     {
       "src": "Malaysia-15.jpg",
